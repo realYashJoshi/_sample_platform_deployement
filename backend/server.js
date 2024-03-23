@@ -2,8 +2,9 @@ const express=require("express");
 const app=express();
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-
+const path=require("path")
 const cors=require("cors");
+
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -21,8 +22,11 @@ app.use('/api/auth',authRoutes);
 app.use('/api/users',userRoutes);
 app.use('/api/business', businessRoutes);
 app.use('/api/ad', adsRoutes);
+//deployment
+const __dirname1=path.resolve();
+app.use(express.static(path.join(__dirname1,"/frontend/build")))
 app.get('/',(req,res)=>{
-    res.send("Hello World")
+    res.sendFile(__dirname1,"frontend","build","index.html");
 });
 app.listen(5000,()=>{
     console.log("Server running on port 5000")
