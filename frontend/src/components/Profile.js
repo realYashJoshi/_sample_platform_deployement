@@ -12,7 +12,7 @@ const Profile = () => {
     const fetchUserProfile = async () => {
       try {
         const token = Cookies.get('token');
-        const { data } = await axios.get('http://localhost:5000/api/auth/profile', {
+        const { data } = await axios.get('https://terabh-intelligence.onrender.com/api/auth/profile', {
           headers: {
             Authorization: `Bearer ${token}`
           }
