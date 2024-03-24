@@ -68,7 +68,7 @@ const BusinessProfile = ({ user }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(https://terabh-intelligence.onrender.com/api/business/create-ad', {
+      await axios.post('https://terabh-intelligence.onrender.com/api/business/create-ad', {
         adContent,
         imageUrl,
         targets: selectedUsers,
