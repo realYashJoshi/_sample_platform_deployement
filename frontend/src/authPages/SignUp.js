@@ -27,7 +27,7 @@ const SignUp = () => {
       return;
     }
     try {
-      await axios.post('http://localhost:5000/api/auth/signup', userData);
+      await axios.post('https://terabh-intelligence.onrender.com/api/auth/signup', userData);
       toast.success('Signed Up successfully please proceed to Sign in');
      
       
