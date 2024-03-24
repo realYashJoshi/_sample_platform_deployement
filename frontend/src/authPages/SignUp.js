@@ -4,7 +4,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Form, Button,Container,Row,Col } from 'react-bootstrap';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const SignUp = () => {
   const [userData, setUserData] = useState({ email: '', password: '', type: '' });
   const navigate = useNavigate();
@@ -27,7 +28,12 @@ const SignUp = () => {
     }
     try {
       await axios.post('http://localhost:5000/api/auth/signup', userData);
-      navigate('/signin');
+      toast.success('Signed Up successfully please proceed to Sign in');
+     
+      
+      setTimeout(() => {
+        navigate('/signin'); 
+      }, 2000);
     } catch (error) {
       console.error(error);
     }
