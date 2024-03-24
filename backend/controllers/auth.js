@@ -35,7 +35,7 @@ exports.signin = async (req, res) => {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
     const token = jwt.sign({ email: user.email, id: user._id }, 'secret123', { expiresIn: '30d' });
-    res.cookie('token', token, { httpOnly: true, maxAge: 3600000});
+    res.cookie('token', token, { httpOnly: false, maxAge: 3600000});
     res.status(200).json({ result: user, token});
   } catch (error) {
     res.status(500).json({ message: 'Something went wrong' });
