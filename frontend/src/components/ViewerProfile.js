@@ -22,7 +22,7 @@ const ViewerProfile = ({ user }) => {
             Authorization: `Bearer ${token}`
           }
         };
-        const res = await axios.get('http://localhost:5000/api/ad', config);
+        const res = await axios.get('https://terabh-intelligence.onrender.com/api/ad', config);
         setAds(res.data);
       } catch (error) {
         console.error(error);
@@ -31,7 +31,7 @@ const ViewerProfile = ({ user }) => {
     };
     const fetchUserEmails = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/users');
+        const res = await axios.get('https://terabh-intelligence.onrender.com/api/users');
         const emailsMap = {};
         res.data.forEach(user => {
           emailsMap[user._id] = user.email;
